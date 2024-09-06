@@ -1,25 +1,21 @@
 
-header{
+/* header要素を修正してh1と画像を中央に配置 */
+header {
     display: flex;
-    background-color:#023671;
-    text-align: center;
+    background-color: #023671;
+    justify-content: center; /* 中央に配置 */
+    align-items: center; /* 垂直方向も中央に配置 */
+    padding: 20px;
 }
 
-h1{    
+h1 {
     color: white;
     font-family: "Kaisei Opti", serif;
     font-weight: 400;
     font-style: normal;
     font-size: 35px;
-    margin-left: 38%;
     text-align: center;
-    }
-
-.header_img{
-    width: 10%;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left: 30px;
+    margin: 0 20px; /* h1と画像の間に少し余白を持たせる */
 }
 
 h2{
@@ -39,6 +35,11 @@ h3{
     font-size: 18px;
     text-align: center;
     margin-bottom: 20px;
+}
+
+.setsumei{
+    background-color: #BFDAFE;
+    padding: 5px;
 }
 
 .setsumei{
@@ -78,35 +79,48 @@ h3{
     font-size: 18px;
 }
 
+
+
+
+.header_img {
+    width: 10%;
+    margin: 0 20px; /* h1と画像の間に余白 */
+}
+
+/* 画像を中央に配置 */
 #image-container {
-    text-align: center; /* コンテナ内で中央揃え */
+    display: flex;
+    justify-content: center; /* 水平方向に中央揃え */
+    align-items: center; /* 垂直方向も中央揃え */
+    text-align: center;
+    margin: 20px auto;
 }
 
 #apod-image {
     display: block; /* インライン要素をブロック要素に変更 */
-    margin: 20px auto; /* 上下に20pxの余白をつけ、左右は自動で中央揃え */
+    margin: 0 auto; /* 自動的に中央揃え */
     max-width: 100%; /* 画像の幅が画面幅を超えないように設定 */
     height: auto; /* 画像の縦横比を保持 */
+    max-height: 500px; /* 高さの最大値を設定 */
 }
 
 /* 説明文のスタイルを指定 */
 #explanation, #explanation-jp {
-    font-family: "Kaisei Opti", serif; /* フォントファミリーの指定 */
-    font-size: 18px; /* フォントサイズの指定 */
-    color: #333; /* フォントカラーの指定 */
-    line-height: 1.6; /* 行間の設定 */
-    text-align: left; /* 左揃え */
+    font-family: "Kaisei Opti", serif;
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+    text-align: left;
     margin: 20px auto;
-    max-width: 800px; /* 説明文の最大幅を800pxに設定 */
+    max-width: 800px;
 }
 
-
-.Copyright{
-    position:relative;
+.Copyright {
+    position: relative;
     font-family: "Kaisei Opti", serif;
     font-weight: 400;
     font-style: normal;
     font-size: 20px;
     text-align: center;
     margin-top: 30px;
-  }
+}
