@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/sample.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti:wght@400;500;700&display=swap" rel="stylesheet">
+
+<title>日めくり宇宙</title>
+</head>
+<body>
+
+<!-- 投稿画面 -->    
+<header>
+    <h1>日めくり宇宙</h1>
+</header>
+
+<div class="setsumei">
+    <h2>日替わりで天体写真を紹介するサイトです</h2>
+    <h3>好きな日付を入力してください</h3>
+</div>    
+
+<div class="date">
+<label for="date">日付を選択
+    <input type="date" id="date">
+</label>
+</div>
+
+<div class="kensaku">
+    <button id="kensaku">検索</button>
+</div>
+
+<!-- 画像を表示するための領域 -->
+<div id="image-container">
+    <img id="apod-image" style="max-width: 100%; display: none;" alt="APOD image">
+</div>
+
+<!-- 英語の説明文を表示する領域 -->
+<p id="explanation"></p>
+
+<!-- 日本語の説明文を表示する領域 -->
+<p id="explanation-jp"></p>
+
+<script>
+$(document).ready(function(){
+    $('#kensaku').on('click', function(){
+        const selectedDate = $('#date').val(); // ユーザーが選択した日付を取得
+        const today = new Date().toISOString().split('T')[0]; // 今日の日付（YYYY-MM-DD形式）
+
+        // 日付バリデーション
+        if (selectedDate && selectedDate <= today && selectedDate >= '1995-06-16') {
+            const apiKey = 'Iy9nfsZHJ5VCHpcdOrGzCbMfyA70CNhud4WQbwk2'; // 新しいAPIキーに置き換える
+            const url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${selectedDate}`;
+
+            $.ajax({
+                url: url,
+                type: 'get',
+                cache: true, // キャッシュを有効にする
+                dataType: 'json'
+            }).done(function(data){
+                
+        // 画像の表示
+        if (data.media_type === 'image') {
+            $('#apod-image').attr('src', data.hdurl || data.url); // 画像URLを設定
+            $('#apod-image').show(); // 画像を表示
+        } else {
+            $('#apod-image').hide(); // 画像がない場合非表示
+        }
+        
+        // 英語の説明文の表示
+        $('#explanation').text("Explanation (English): " + data.explanation);
+
+        // 日付による日本語の解説を併記する
+        let explanationJP = "";
+        if (selectedDate === "2024-09-04") {
+            explanationJP = "この宇宙画像はコウモリ星雲を示しており、2024年9月4日に撮影されました。地球の大気や他の要素の影響で、光が独特の形に見えます。";
+        } else {
+            explanationJP = "選択された日付に対応する翻訳は現在ありません。";
+        }
+
+        // 日本語の説明文を表示
+        $('#explanation-jp').text("解説 (日本語): " + explanationJP);
+
+            }).fail(function(jqXHR, textStatus, errorThrown){
+                console.error('API call failed: ' + textStatus, errorThrown);
+                console.log("Response Text: " + jqXHR.responseText); // サーバーからのレスポンスを表示
+            });
+        } else {
+            alert('有効な日付を選択してください。1995-06-16から今日までの日付が選択可能です。');
+        }
+    });
+});
+</script>
+
+</body>
+</html>

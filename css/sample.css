@@ -1,0 +1,112 @@
+
+header{
+    display: flex;
+    background-color:#023671;
+    text-align: center;
+}
+
+h1{    
+    color: white;
+    font-family: "Kaisei Opti", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 35px;
+    margin-left: 38%;
+    text-align: center;
+    }
+
+.header_img{
+    width: 10%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+}
+
+h2{
+    color: #4281C8;
+    font-family: "Kaisei Opti", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    text-align: center;
+}
+
+h3{
+    color: #4281C8;
+    font-family: "Kaisei Opti", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.setsumei{
+    background-color: #BFDAFE;
+    padding: 5px;
+}
+
+.date{
+    color: black;
+    font-family: "Kaisei Opti", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+} 
+
+.kensaku{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    margin-bottom: 30px;
+    color: black;
+    font-family: "Kaisei Opti", serif;
+    font-size: 18px;
+}
+
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    color: black;
+    font-family: "Kaisei Opti", serif;
+    font-size: 18px;
+}
+
+#image-container {
+    text-align: center; /* コンテナ内で中央揃え */
+}
+
+#apod-image {
+    display: block; /* インライン要素をブロック要素に変更 */
+    margin: 20px auto; /* 上下に20pxの余白をつけ、左右は自動で中央揃え */
+    max-width: 100%; /* 画像の幅が画面幅を超えないように設定 */
+    height: auto; /* 画像の縦横比を保持 */
+}
+
+/* 説明文のスタイルを指定 */
+#explanation, #explanation-jp {
+    font-family: "Kaisei Opti", serif; /* フォントファミリーの指定 */
+    font-size: 18px; /* フォントサイズの指定 */
+    color: #333; /* フォントカラーの指定 */
+    line-height: 1.6; /* 行間の設定 */
+    text-align: left; /* 左揃え */
+    margin: 20px auto;
+    max-width: 800px; /* 説明文の最大幅を800pxに設定 */
+}
+
+
+.Copyright{
+    position:relative;
+    font-family: "Kaisei Opti", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 30px;
+  }
