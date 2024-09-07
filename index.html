@@ -51,7 +51,7 @@ $(document).ready(function(){
 
         // 日付バリデーション
         if (selectedDate && selectedDate <= today && selectedDate >= '1995-06-16') {
-            const apiKey = 'Iy9nfsZHJ5VCHpcdOrGzCbMfyA70CNhud4WQbwk2'; // 新しいAPIキーに置き換える
+            const apiKey = 'API'; // 新しいAPIキーに置き換える
             const url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${selectedDate}`;
 
             $.ajax({
